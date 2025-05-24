@@ -3,95 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minha Loja</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #222;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin: 20px;
-        }
-        .product {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            width: 300px;
-            margin: 15px;
-            padding: 20px;
-            text-align: center;
-        }
-        .product img {
-            max-width: 100%;
-            border-radius: 8px;
-        }
-        .product h2 {
-            font-size: 20px;
-        }
-        .product p {
-            color: #555;
-        }
-        .price {
-            font-weight: bold;
-            color: green;
-            margin: 10px 0;
-        }
-        .buy-button {
-            background-color: #28a745;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .buy-button:hover {
-            background-color: #218838;
-        }
-    </style>
+    <title>Dice Company</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-    <h1>Minha Loja Online</h1>
-</header>
+    <!-- NAVBAR -->
+    <header>
+        <div class="logo">🎲 Dice Company</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#produtos">Produtos</a></li>
+                <li><a href="#suporte">Suporte</a></li>
+                <li><a href="#">Login</a></li>
+                <li class="cart-btn" onclick="toggleCart()">🛒<span id="cart-count">0</span></li>
+            </ul>
+        </nav>
+    </header>
 
-<div class="container">
-    <div class="product">
-        <img src="https://via.placeholder.com/300x200.png?text=Produto+1" alt="Produto 1">
-        <h2>Produto 1</h2>
-        <p>Descrição breve do produto 1.</p>
-        <p class="price">R$ 49,90</p>
-        <a class="buy-button" href="https://wa.me/SEUNUMERO" target="_blank">Comprar</a>
+    <!-- HOME -->
+    <section id="home" class="home">
+        <h1>Bem-vindo à Dice Company</h1>
+        <img src="imagens/banner.png" alt="Banner">
+    </section>
+
+    <!-- PRODUTOS -->
+    <section id="produtos" class="produtos">
+        <h2>Produtos</h2>
+        <div class="produtos-container">
+            <div class="produto">
+                <img src="imagens/produto1.png" alt="Produto 1">
+                <h3>Camiseta Dice Fangs</h3>
+                <p>R$ 69,90</p>
+                <button onclick="addToCart('Camiseta Dice Fangs', 69.90)">Adicionar ao carrinho</button>
+            </div>
+            <div class="produto">
+                <img src="imagens/produto2.png" alt="Produto 2">
+                <h3>Boné Dice</h3>
+                <p>R$ 49,90</p>
+                <button onclick="addToCart('Boné Dice', 49.90)">Adicionar ao carrinho</button>
+            </div>
+            <!-- Adicione mais produtos aqui -->
+        </div>
+    </section>
+
+    <!-- SUPORTE -->
+    <section id="suporte" class="suporte">
+        <h2>Suporte</h2>
+        <p>Entre em contato via <a href="mailto:suporte@dicecompany.com">suporte@dicecompany.com</a> ou WhatsApp.</p>
+    </section>
+
+    <!-- CARRINHO -->
+    <div id="cart" class="cart">
+        <h2>Seu Carrinho</h2>
+        <ul id="cart-items"></ul>
+        <p>Total: R$ <span id="cart-total">0.00</span></p>
+        <button onclick="checkout()">Finalizar Compra</button>
+        <button onclick="toggleCart()">Fechar</button>
     </div>
 
-    <div class="product">
-        <img src="https://via.placeholder.com/300x200.png?text=Produto+2" alt="Produto 2">
-        <h2>Produto 2</h2>
-        <p>Descrição breve do produto 2.</p>
-        <p class="price">R$ 79,90</p>
-        <a class="buy-button" href="https://wa.me/SEUNUMERO" target="_blank">Comprar</a>
-    </div>
-
-    <div class="product">
-        <img src="https://via.placeholder.com/300x200.png?text=Produto+3" alt="Produto 3">
-        <h2>Produto 3</h2>
-        <p>Descrição breve do produto 3.</p>
-        <p class="price">R$ 99,90</p>
-        <a class="buy-button" href="https://wa.me/SEUNUMERO" target="_blank">Comprar</a>
-    </div>
-</div>
-
+    <script src="script.js"></script>
 </body>
 </html>
